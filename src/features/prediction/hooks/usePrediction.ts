@@ -1,13 +1,9 @@
 import { useState } from 'react';
-import { CompanyData, Prediction } from '../types';
+import { CompanyData, Prediction, PredictionFormData } from '../types';
 import { formatCNPJ } from '../../../utils/format';
 
 // Tipos de estado da UI
 export type PredictionStep = 'form' | 'details' | 'result';
-
-// URLs (vazias conforme solicitado)
-const GET_COMPANY_DATA_URL = '';
-const GET_PREDICTION_URL = '';
 
 export const usePrediction = () => {
   const [step, setStep] = useState<PredictionStep>('form');
@@ -50,11 +46,12 @@ export const usePrediction = () => {
     }
   };
 
-  const submitForPrediction = async () => {
+  const submitForPrediction = async (formData: PredictionFormData) => {
     setIsLoading(true);
     setError(null);
     try {
       // Simula a chamada de API para obter a predição
+      console.log('Enviando para predição:', formData);
       await new Promise(resolve => setTimeout(resolve, 2000));
       const mockPrediction: Prediction = Math.random() > 0.5 ? 1 : 0;
       setPrediction(mockPrediction);
