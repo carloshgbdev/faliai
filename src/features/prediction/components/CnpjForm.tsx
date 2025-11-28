@@ -17,7 +17,10 @@ export const CnpjForm = ({ cnpj, isLoading, error, handleCnpjChange, submitCnpj 
   return (
     <Card className="max-w-lg mx-auto w-full">
       <div className="text-center mb-8">
-        <h1 className="text-5xl font-bold text-text-main">FaliAI?</h1>
+        <div className="flex items-center justify-center gap-4">
+          <img src="/push.jpg" alt="FaliAI Logo" className="h-12 w-12 rounded-full" />
+          <h1 className="text-5xl font-bold text-text-main">FaliAI?</h1>
+        </div>
         <p className="text-text-muted mt-2 text-lg">Insira seu CNPJ e descubra se terá que fugir para outro país...</p>
       </div>
       <form onSubmit={handleSubmit} className="space-y-4">
